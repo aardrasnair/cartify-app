@@ -12,7 +12,6 @@ window.onload = async () => {
   profileAvatar.style.display = 'none';
   mainContent.style.display = 'none';
 
-  // Fetch products from API
   try {
     const response = await fetch('https://fakestoreapi.com/products');
     products = await response.json();
@@ -20,7 +19,6 @@ window.onload = async () => {
     console.error('Failed to fetch products:', err);
   }
 
-  // Splash screen fade out after 3 seconds
   setTimeout(() => {
     splash.style.transition = 'opacity 0.8s ease';
     splash.style.opacity = 0;
