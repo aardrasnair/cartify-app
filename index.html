@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cartifyshop</title>
+  <!-- Pixelcore Pixel Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline fallback styling for the header */
+    .purchase-heading.pixelcore-pxl-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.6rem;
+      color: white;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="shop-page">
+  <!-- Profile Avatar -->
+  <div id="profile-avatar">
+    <a href="profile.html">
+      <img src="image/userimg.jpg" alt="Profile" />
+    </a>
+  </div>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img src="image/logo.jpg" alt="Store logo" />
+    <h1>CARTIFY</h1>
+    <p>Your favorite place to shop!</p>
+  </div>
+  <!-- Main Content -->
+  <div id="main-content" style="display:none;">
+    <div class="heading-wrapper">
+      <h2 class="purchase-heading pixelcore-pxl-heading">Purchase List</h2>
+    </div>
+    <!-- Product List -->
+    <div id="product-list">
+    </div>
+    <!-- Buttons -->
+    <button id="load-more" class="pixelcore-btn">Load More</button>
+    <a href="profile.html" class="pixelcore-btn">View Profile</a>
+  </div>
+  <!-- Splash Script -->
+  <script>
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash');
+      const mainContent = document.getElementById('main-content');
+      setTimeout(() => {
+        splash.style.transition = 'opacity 0.5s ease';
+        splash.style.opacity = '0';
+        setTimeout(() => {
+          splash.style.display = 'none';
+          mainContent.style.display = 'block';
+        }, 500);
+      }, 2000);
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

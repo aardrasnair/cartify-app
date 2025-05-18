@@ -1,0 +1,333 @@
+/*BASE STYLES*/
+body {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #3a2f5a;
+}
+body.shop-page {
+  background: linear-gradient(135deg, #b3c7ff, #c9a9ff);
+  min-height: 100vh;
+  padding: 20px;
+}
+body.profile-page {
+  background: linear-gradient(135deg, #ffd1dc, #cba3e0, #ffb347);
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Indie Flower', cursive;
+  color: #4a3f55;
+  position: relative; 
+}
+/*SPLASH SCREEN*/
+#splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f9d5e5, #cbb0e3, #9db6f2);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: drop-shadow(0 0 15px #d6b3ff);
+  user-select: none;
+  font-family: 'Press Start 2P', cursive;
+  color: #7a5ca3;
+  z-index: 9999;
+  overflow: hidden;
+}
+#splash::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  background:
+    linear-gradient(45deg, #e8c9ff 25%, transparent 25%) 0 0,
+    linear-gradient(-45deg, #e8c9ff 25%, transparent 25%) 0 10px,
+    linear-gradient(45deg, #d0b3f9 25%, transparent 25%) 10px -10px,
+    linear-gradient(-45deg, #d0b3f9 25%, transparent 25%) 10px 0;
+  background-size: 20px 20px;
+  background-repeat: repeat;
+  transform: translateX(-50%);
+  opacity: 0.1;
+  pointer-events: none;
+  filter: blur(1.5px);
+  z-index: 1;
+}
+#splash::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 3;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.9) 3px, transparent 4px),
+    radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.7) 2.5px, transparent 3.5px),
+    radial-gradient(circle at 70% 65%, rgba(255, 255, 255, 0.8) 3px, transparent 4px),
+    radial-gradient(circle at 85% 25%, rgba(255, 255, 255, 0.6) 2px, transparent 3px),
+    radial-gradient(circle at 30% 75%, rgba(255, 255, 255, 0.8) 3px, transparent 4px);
+  background-repeat: no-repeat;
+  animation: sparkleAnim 8s ease-in-out infinite;
+  filter: drop-shadow(1px 1px 1px #c3a7ff);
+}
+#splash img {
+  width: 220px;
+  margin-bottom: 20px;
+  border: 5px solid #b4a1e4;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 #9a7acb;
+  image-rendering: pixelated;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+#splash img:hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 0 #7a58b3;
+}
+#splash h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: white;
+  text-shadow:
+    2px 2px 0 #b3a1e8,
+    4px 4px 0 #8c76ce,
+    6px 6px 0 #a07ddf;
+  margin: 0 0 10px;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+#splash p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.6rem;
+  color: #836cbf;
+  text-shadow: 1px 1px 1px #cfc1f7;
+  margin: 0;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+/*PRODUCT GRID*/
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+/*PASTEL PIXELCORE PRODUCT CARD*/
+.product {
+  background: linear-gradient(135deg, #f9eaff, #e0d6ff);
+  border: 3px solid #c6b0f5;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 4px 4px 0 #b89ee2;
+  font-family: 'Press Start 2P', cursive;
+  color: #6d50a3;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+.product:hover {
+  transform: scale(1.03);
+  box-shadow: 6px 6px 0 #a58ad4;
+}
+.product img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border: 4px solid #d9c7ff;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 2px 0 #c2a9f2;
+  image-rendering: pixelated;
+}
+.product-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #7b5ea5;
+  text-shadow: 1px 1px 0 #e6dcff;
+}
+.product-price {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.4rem;
+  color: #a07ddf;
+  margin: 5px 0;
+  text-shadow: 1px 1px 1px #e1cdf9;
+}
+.product::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 15%, rgba(255,255,255,0.7) 2px, transparent 3px),
+    radial-gradient(circle at 80% 25%, rgba(255,255,255,0.8) 3px, transparent 4px),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.6) 2px, transparent 3px);
+  background-repeat: no-repeat;
+  animation: sparkleAnim 6s ease-in-out infinite;
+  z-index: 1;
+}
+/*PROFILE AVATAR*/
+#profile-avatar {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(138,107,193,0.7);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+#profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#profile-avatar:hover {
+  transform: scale(1.1);
+}
+/*BUTTONS*/
+.pixelcore-btn,
+#load-more.pixelcore-btn,
+#main-content a.pixelcore-btn {
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(135deg, #b3c7ff, #8a6bc1);
+  border: 3px solid #a085d1;
+  color: white;
+  padding: 12px 20px;
+  margin: 15px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  text-align: center;
+}
+.pixelcore-btn:hover {
+  background: linear-gradient(135deg, #a085d1, #b3c7ff);
+  transform: scale(1.05);
+}
+/*HEADING*/
+.purchase-heading {
+  position: relative;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 30px auto 20px;
+  padding: 12px 36px;
+  max-width: fit-content;
+  background: linear-gradient(135deg, #c1baff, #9b8fff 70%);
+  border: 5px solid #8a79c2;
+  border-radius: 16px;
+  box-shadow:
+    3px 3px 0 #7762b0,
+    inset 0 0 8px #b9aaff;
+  user-select: none;
+  text-align: center;
+  text-shadow:
+    1.5px 1.5px 0 #7b69a6,
+    3px 3px 0 #5f4a8a;
+  letter-spacing: 2px;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  z-index: 10;
+}
+.purchase-heading::before {
+  content: "";
+  position: absolute;
+  top: 10px; left: 10px; right: 10px; bottom: 10px;
+  border-radius: 12px;
+  background:
+    linear-gradient(45deg, #d0c8ff 25%, transparent 25%) 0 0,
+    linear-gradient(-45deg, #d0c8ff 25%, transparent 25%) 0 8px,
+    linear-gradient(45deg, #b3a9ff 25%, transparent 25%) 8px -8px,
+    linear-gradient(-45deg, #b3a9ff 25%, transparent 25%) 8px 0;
+  background-size: 16px 16px;
+  background-repeat: repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 1;
+}
+.purchase-heading > * {
+  position: relative;
+  z-index: 10;
+}
+.heading-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+/*==========================
+  SIMPLE PIXEL CLOUDS (STATIC)
+==========================*/
+.pixel-clouds-simple {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(1px 1px 0 #a085d1);
+  opacity: 0.7;
+  z-index: 100;
+}
+.cloud-block {
+  width: 16px;
+  height: 16px;
+  background:
+    linear-gradient(45deg, #b3c7ff 25%, transparent 25%) top left,
+    linear-gradient(-45deg, #b3c7ff 25%, transparent 25%) top right,
+    linear-gradient(-45deg, #b3c7ff 25%, transparent 25%) bottom left,
+    linear-gradient(45deg, #b3c7ff 25%, transparent 25%) bottom right;
+  background-size: 8px 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+}
+.cloud-block:nth-child(2) {
+  background-color: #c9a9ff;
+  /* Fix the drop-shadow - example below */
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+}
+.purchase-heading.pixelcore-pxl-heading {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.6rem; /* smaller size */
+  color: white; /* white text */
+  letter-spacing: 2px; /* pixel feel */
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+#product-list * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 1rem !important;
+  color: #333 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
